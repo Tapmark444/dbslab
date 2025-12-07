@@ -1,0 +1,144 @@
+// Switch to test database and drop collection if exists
+use movie_db
+db.movies.drop()
+
+// Insert 10 movies (John/Elly in 2012, Ram as actor)
+db.movies.insertMany([
+  {
+    actor_name: "John Abraham",
+    actor_id: 101,
+    actor_birthdate: "1973-12-17",
+    director_name: "Rohit Dhawan",
+    director_id: 301,
+    director_birthdate: "1980-05-15",
+    film_title: "Dishoom",
+    year: 2012,
+    type: "Action Comedy"
+  },
+  {
+    actor_name: "Elly Singh",
+    actor_id: 102,
+    actor_birthdate: "1985-03-22",
+    director_name: "Vikram Bhatt",
+    director_id: 302,
+    director_birthdate: "1969-06-27",
+    film_title: "Race 2",
+    year: 2012,
+    type: "Action Thriller"
+  },
+  {
+    actor_name: "John Abraham",
+    actor_id: 101,
+    actor_birthdate: "1973-12-17",
+    director_name: "Siddharth Anand",
+    director_id: 303,
+    director_birthdate: "1976-10-01",
+    film_title: "Housefull 2",
+    year: 2012,
+    type: "Comedy"
+  },
+  {
+    actor_name: "Elly Singh",
+    actor_id: 102,
+    actor_birthdate: "1985-03-22",
+    director_name: "Sajid Khan",
+    director_id: 304,
+    director_birthdate: "1971-11-23",
+    film_title: "Rowdy Rathore",
+    year: 2012,
+    type: "Action Comedy"
+  },
+  {
+    actor_name: "Ram Kapoor",
+    actor_id: 103,
+    actor_birthdate: "1973-09-21",
+    director_name: "David Dhawan",
+    director_id: 305,
+    director_birthdate: "1955-06-04",
+    film_title: "Chashme Baddoor",
+    year: 2013,
+    type: "Comedy"
+  },
+  {
+    actor_name: "Ram Kapoor",
+    actor_id: 103,
+    actor_birthdate: "1973-09-21",
+    director_name: "Nikhil Advani",
+    director_id: 306,
+    director_birthdate: "1971-04-21",
+    film_title: "Student of the Year",
+    year: 2012,
+    type: "Romantic Comedy"
+  },
+  {
+    actor_name: "Ranbir Kapoor",
+    actor_id: 104,
+    actor_birthdate: "1982-09-28",
+    director_name: "Ayan Mukerji",
+    director_id: 307,
+    director_birthdate: "1983-05-12",
+    film_title: "Yeh Jawaani Hai Deewani",
+    year: 2013,
+    type: "Romantic Drama"
+  },
+  {
+    actor_name: "Deepika Padukone",
+    actor_id: 105,
+    actor_birthdate: "1986-01-05",
+    director_name: "Sanjay Leela Bhansali",
+    director_id: 308,
+    director_birthdate: "1963-02-24",
+    film_title: "Goliyon Ki Rasleela Ram-Leela",
+    year: 2013,
+    type: "Romantic Tragedy"
+  },
+  {
+    actor_name: "Ram Kapoor",
+    actor_id: 103,
+    actor_birthdate: "1973-09-21",
+    director_name: "Rohit Shetty",
+    director_id: 309,
+    director_birthdate: "1973-03-14",
+    film_title: "Chennai Express",
+    year: 2013,
+    type: "Action Comedy"
+  },
+  {
+    actor_name: "Katrina Kaif",
+    actor_id: 106,
+    actor_birthdate: "1983-07-16",
+    director_name: "Kabir Khan",
+    director_id: 310,
+    director_birthdate: "1971-04-04",
+    film_title: "Ek Tha Tiger",
+    year: 2012,
+    type: "Action Thriller"
+  }
+])
+
+
+db.movies.find(
+  { 
+    $or: [
+      { actor_name: "John Abraham", year: 2012 },
+      { actor_name: "Elly Singh", year: 2012 }
+    ]
+  },
+  { 
+    film_title: 1, 
+    actor_name: 1, 
+    year: 1, 
+    type: 1, 
+    _id: 0 
+  }
+)
+
+
+db.movies.find(
+  { actor_name: "Ram Kapoor" },
+  { 
+    film_title: 1, 
+    type: 1, 
+    _id: 0 
+  }
+).sort({ film_title: 1 })
