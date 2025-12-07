@@ -1,0 +1,174 @@
+// Switch to test database and drop collection if exists
+use restaurant_db
+db.restaurants.drop()
+
+// Insert 10 Bangalore restaurants
+db.restaurants.insertMany([
+  {
+    name: "Spice Thali",
+    address: {
+      building: "Ground Floor",
+      street: "Jayanagar 4th Block",
+      area: "Jayanagar",
+      pincode: 560011
+    },
+    id: 1,
+    cuisine: ["North Indian", "South Indian"],
+    nearby_landmarks: ["Jayanagar Shopping Complex", "Nagarjuna Hotel"],
+    online_delivery: "yes",
+    famous_for: "North Indian Thali"
+  },
+  {
+    name: "Punjabi Dhaba",
+    address: {
+      building: "1st Floor",
+      street: "Koramangala 80 Feet Road",
+      area: "Koramangala",
+      pincode: 560034
+    },
+    id: 2,
+    cuisine: ["North Indian", "Punjabi"],
+    nearby_landmarks: ["Forum Koramangala", "Trinity Circle"],
+    online_delivery: "yes",
+    famous_for: "North Indian Thali"
+  },
+  {
+    name: "Rajasthani Rasoi",
+    address: {
+      building: "Ground Floor",
+      street: "Whitefield Main Road",
+      area: "Whitefield",
+      pincode: 560066
+    },
+    id: 3,
+    cuisine: ["North Indian", "Rajasthani"],
+    nearby_landmarks: ["Phoenix Marketcity", "Whitefield Metro"],
+    online_delivery: "yes",
+    famous_for: "Dal Baati Churma"
+  },
+  {
+    name: "Thali King",
+    address: {
+      building: "1st Floor",
+      street: "Marathahalli Main Road",
+      area: "Marathahalli",
+      pincode: 560037
+    },
+    id: 4,
+    cuisine: ["North Indian", "Gujarati"],
+    nearby_landmarks: ["Soul Space Arena", "ORR Flyover"],
+    online_delivery: "yes",
+    famous_for: "North Indian Thali"
+  },
+  {
+    name: "Delhi Darbar",
+    address: {
+      building: "3rd Floor",
+      street: "Commercial Street",
+      area: "Shivaji Nagar",
+      pincode: 560001
+    },
+    id: 5,
+    cuisine: ["North Indian", "Mughlai"],
+    nearby_landmarks: ["Commercial Street Market", "Russell Market"],
+    online_delivery: "yes",
+    famous_for: "Butter Chicken"
+  },
+  {
+    name: "Bella Italia",
+    address: {
+      building: "12th Floor",
+      street: "MG Road",
+      area: "Indiranagar",
+      pincode: 560038
+    },
+    id: 6,
+    cuisine: ["Italian"],
+    nearby_landmarks: ["Forum Mall", "Indiranagar Metro"],
+    online_delivery: "yes",
+    famous_for: "Margherita Pizza"
+  },
+  {
+    name: "Gujju Thali",
+    address: {
+      building: "2nd Floor",
+      street: "Bannerghatta Road",
+      area: "Jayanagar",
+      pincode: 560076
+    },
+    id: 7,
+    cuisine: ["North Indian", "Gujarati"],
+    nearby_landmarks: ["Meenakshi Mall", "JP Nagar"],
+    online_delivery: "yes",
+    famous_for: "North Indian Thali"
+  },
+  {
+    name: "MTR 1924",
+    address: {
+      building: "Ground Floor",
+      street: "Lalbagh Road",
+      area: "Basavanagudi",
+      pincode: 560004
+    },
+    id: 8,
+    cuisine: ["South Indian"],
+    nearby_landmarks: ["Lalbagh Botanical Garden", "Bull Temple"],
+    online_delivery: "no",
+    famous_for: "Masala Dosa"
+  },
+  {
+    name: "North Star",
+    address: {
+      building: "1st Floor",
+      street: "HSR Layout 27th Main",
+      area: "HSR Layout",
+      pincode: 560102
+    },
+    id: 9,
+    cuisine: ["North Indian"],
+    nearby_landmarks: ["HSR Layout Park", "Agara Lake"],
+    online_delivery: "yes",
+    famous_for: "North Indian Thali"
+  },
+  {
+    name: "Karavalli",
+    address: {
+      building: "Ground Floor",
+      street: "Residency Road",
+      area: "Shanthala Nagar",
+      pincode: 560025
+    },
+    id: 10,
+    cuisine: ["Coastal", "Mangalorean"],
+    nearby_landmarks: ["UB City", "MG Road Metro"],
+    online_delivery: "no",
+    famous_for: "Anjal Fry"
+  }
+])
+
+
+db.restaurants.find(
+  { 
+    cuisine: "North Indian",
+    famous_for: "North Indian Thali"
+  },
+  { 
+    name: 1, 
+    address: 1, 
+    nearby_landmarks: 1, 
+    _id: 0 
+  }
+)
+
+
+db.restaurants.find(
+  { 
+    online_delivery: "yes" 
+  },
+  { 
+    name: 1, 
+    address: 1, 
+    famous_for: 1, 
+    _id: 0 
+  }
+)
