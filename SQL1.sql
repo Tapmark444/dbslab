@@ -52,6 +52,7 @@ INSERT INTO Reserves (sid, bid, day) VALUES
 (3, 101, '2025-12-03'),
 (4, 104, '2025-12-04');
 
+
 SELECT DISTINCT S.sname
 FROM Sailors S
 JOIN Reserves R ON S.sid = R.sid;
