@@ -1,0 +1,161 @@
+// Switch to test database and drop collection if exists
+use tourist_db
+db.tourist_places.drop()
+
+// Insert 10 tourist places (8 Karnataka, 2 Kerala for sorting demo)
+db.tourist_places.insertMany([
+  {
+    place: "Mysore Palace",
+    address: {
+      state: "Karnataka",
+      id: 1
+    },
+    tourist_attractions: ["Royal Palace", "Dussera Exhibition", "Sound & Light Show"],
+    best_time: "October - March",
+    transport: {
+      nearest_airport: "Mysore Airport (MYQ)",
+      nearest_railway: "Mysore Junction"
+    },
+    accommodation: ["Royal Orchid Metropole", "Keys Hotel"],
+    food: "Mysore Pak, Masala Dose"
+  },
+  {
+    place: "Coorg (Kodagu)",
+    address: {
+      state: "Karnataka",
+      id: 2
+    },
+    tourist_attractions: ["Abbey Falls", "Raja's Seat", "Coffee Plantations", "Iruppu Falls"],
+    best_time: "October - April",
+    transport: {
+      nearest_airport: "Mangalore Airport (IXE)",
+      nearest_railway: "Mysore Junction"
+    },
+    accommodation: ["Club Mahindra", "Coorg Wilderness Resort"],
+    food: "Pandhi Curry, Nolen Gur"
+  },
+  {
+    place: "Hampi",
+    address: {
+      state: "Karnataka",
+      id: 3
+    },
+    tourist_attractions: ["Virupaksha Temple", "Vittala Temple", "Lotus Mahal", "Elephant Stables"],
+    best_time: "October - February",
+    transport: {
+      nearest_airport: "Hubli Airport (HBX)",
+      nearest_railway: "Hospet Junction"
+    },
+    accommodation: ["Evolve Back", "Clarks Inn"],
+    food: "Jolada Rotti, Ennegai"
+  },
+  {
+    place: "Gokarna",
+    address: {
+      state: "Karnataka",
+      id: 4
+    },
+    tourist_attractions: ["Om Beach", "Kudle Beach", "Half Moon Beach", "Mahabaleshwar Temple"],
+    best_time: "October - March",
+    transport: {
+      nearest_airport: "Goa Airport (GOI)",
+      nearest_railway: "Gokarna Road"
+    },
+    accommodation: ["Namaste Cafe", "SwaSwara"],
+    food: "Seafood Thali, Prawn Gassi"
+  },
+  {
+    place: "Chikmagalur",
+    address: {
+      state: "Karnataka",
+      id: 5
+    },
+    tourist_attractions: ["Mullayanagiri Peak", "Hebbe Falls", "Coffee Museum", "Baba Budangiri"],
+    best_time: "September - March",
+    transport: {
+      nearest_airport: "Mangalore Airport (IXE)",
+      nearest_railway: "Kadur Junction"
+    },
+    accommodation: ["The Serai", "Coffee County"],
+    food: "Akki Roti, Chicken Sukka"
+  },
+  {
+    place: "Badami",
+    address: {
+      state: "Karnataka",
+      id: 6
+    },
+    tourist_attractions: ["Cave Temples", "Agastya Lake", "Bhutanatha Temple", "Archaeological Museum"],
+    best_time: "October - March",
+    transport: {
+      nearest_airport: "Hubli Airport (HBX)",
+      nearest_railway: "Badami Railway Station"
+    },
+    accommodation: ["Badami Court", "Krishna Heritage"],
+    food: "Jowar Roti, Badami Halwa"
+  },
+  {
+    place: "Belur & Halebidu",
+    address: {
+      state: "Karnataka",
+      id: 7
+    },
+    tourist_attractions: ["Chennakeshava Temple", "Hoysaleswara Temple", "Hoysala Architecture"],
+    best_time: "October - March",
+    transport: {
+      nearest_airport: "Mangalore Airport (IXE)",
+      nearest_railway: "Hassan Junction"
+    },
+    accommodation: ["Hotel Southern Star", "Clarks Inn"],
+    food: "Ragi Mudde, Chicken Kolhapuri"
+  },
+  {
+    place: "Jog Falls",
+    address: {
+      state: "Karnataka",
+      id: 8
+    },
+    tourist_attractions: ["Highest plunge waterfall in India", "Waterfalls viewpoint", "Dabbe Falls", "Siggi"],
+    best_time: "July - September (monsoon)",
+    transport: {
+      nearest_airport: "Hubli Airport (HBX)",
+      nearest_railway: "Talguppa Railway Station"
+    },
+    accommodation: ["Hotel Mayura Jog Falls", "KSRTC Guest House"],
+    food: "Jolada Rotti, Akki Roti"
+  },
+  {
+    place: "Alleppey (Alappuzha)",
+    address: {
+      state: "Kerala",
+      id: 9
+    },
+    tourist_attractions: ["Backwaters", "Houseboat Cruise", "Alleppey Beach"],
+    best_time: "November - February",
+    transport: {
+      nearest_airport: "Cochin Airport (COK)",
+      nearest_railway: "Alleppey Railway Station"
+    },
+    accommodation: ["Houseboats", "Lemon Tree Vembanad"],
+    food: "Kappa Biriyani, Karimeen Pollichathu"
+  },
+  {
+    place: "Munnar",
+    address: {
+      state: "Kerala",
+      id: 10
+    },
+    tourist_attractions: ["Tea Gardens", "Eravikulam National Park", "Mattupetty Dam"],
+    best_time
+
+
+  db.tourist_places.find(
+  { "address.state": "Karnataka" },
+  { place: 1, _id: 0 }
+)
+
+
+db.tourist_places.find(
+  {},
+  { place: 1, "address.state": 1, _id: 0 }
+).sort({ "address.state": 1 })
