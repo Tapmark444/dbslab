@@ -1,144 +1,142 @@
-// Switch to test database and drop collection if exists
 use movie_db
 db.movies.drop()
 
-// Insert 10 movies (John/Elly in 2012, Ram as actor)
 db.movies.insertMany([
   {
-    actor_name: "John Abraham",
+    actor_name: "John",
     actor_id: 101,
-    actor_birthdate: "1973-12-17",
-    director_name: "Rohit Dhawan",
-    director_id: 501,
-    director_birthdate: "1980-05-15",
-    film_title: "Dishoom",
-    year: 2012,
-    type: "Action Comedy"
+    actor_birthdate: "1985-03-15",
+    director_name: "Ram",
+    director_id: 201,
+    director_birthdate: "1975-06-10",
+    film_title: "City Chase",
+    year_of_production: 2012,
+    type: "Thriller"
   },
   {
-    actor_name: "Elly Singh",
-    actor_id: 102,
-    actor_birthdate: "1985-03-22",
-    director_name: "Vikram Bhatt",
-    director_id: 502,
-    director_birthdate: "1969-06-27",
-    film_title: "Race 2",
-    year: 2012,
-    type: "Action Thriller"
-  },
-  {
-    actor_name: "John Abraham",
+    actor_name: "John",
     actor_id: 101,
-    actor_birthdate: "1973-12-17",
-    director_name: "Siddharth Anand",
-    director_id: 503,
-    director_birthdate: "1976-10-01",
-    film_title: "Housefull 2",
-    year: 2012,
+    actor_birthdate: "1985-03-15",
+    director_name: "Kiran",
+    director_id: 202,
+    director_birthdate: "1978-09-19",
+    film_title: "Laugh Out Loud",
+    year_of_production: 2012,
     type: "Comedy"
   },
   {
-    actor_name: "Elly Singh",
+    actor_name: "Elly",
     actor_id: 102,
-    actor_birthdate: "1985-03-22",
-    director_name: "Sajid Khan",
-    director_id: 504,
-    director_birthdate: "1971-11-23",
-    film_title: "Rowdy Rathore",
-    year: 2012,
-    type: "Action Comedy"
+    actor_birthdate: "1990-01-20",
+    director_name: "Ram",
+    director_id: 201,
+    director_birthdate: "1975-06-10",
+    film_title: "Silent Night",
+    year_of_production: 2012,
+    type: "Drama"
   },
   {
-    actor_name: "Ram Kapoor",
-    actor_id: 103,
-    actor_birthdate: "1973-09-21",
-    director_name: "David Dhawan",
-    director_id: 505,
-    director_birthdate: "1955-06-04",
-    film_title: "Chashme Baddoor",
-    year: 2013,
+    actor_name: "Elly",
+    actor_id: 102,
+    actor_birthdate: "1990-01-20",
+    director_name: "Kiran",
+    director_id: 202,
+    director_birthdate: "1978-09-19",
+    film_title: "Holiday Fun",
+    year_of_production: 2012,
+    type: "Family"
+  },
+  {
+    actor_name: "John",
+    actor_id: 101,
+    actor_birthdate: "1985-03-15",
+    director_name: "Suresh",
+    director_id: 203,
+    director_birthdate: "1980-08-08",
+    film_title: "Old Times",
+    year_of_production: 2010,
+    type: "Drama"
+  },
+  {
+    actor_name: "Elly",
+    actor_id: 102,
+    actor_birthdate: "1990-01-20",
+    director_name: "Suresh",
+    director_id: 203,
+    director_birthdate: "1980-08-08",
+    film_title: "Future World",
+    year_of_production: 2014,
+    type: "Sci-Fi"
+  },
+  {
+    actor_name: "Ram",
+    actor_id: 201,
+    actor_birthdate: "1975-06-10",
+    director_name: "Kiran",
+    director_id: 202,
+    director_birthdate: "1978-09-19",
+    film_title: "Actor Ram One",
+    year_of_production: 2011,
+    type: "Thriller"
+  },
+  {
+    actor_name: "Ram",
+    actor_id: 201,
+    actor_birthdate: "1975-06-10",
+    director_name: "Suresh",
+    director_id: 203,
+    director_birthdate: "1980-08-08",
+    film_title: "Actor Ram Two",
+    year_of_production: 2012,
     type: "Comedy"
   },
   {
-    actor_name: "Ram Kapoor",
+    actor_name: "Ram",
+    actor_id: 201,
+    actor_birthdate: "1975-06-10",
+    director_name: "Kiran",
+    director_id: 202,
+    director_birthdate: "1978-09-19",
+    film_title: "Actor Ram Three",
+    year_of_production: 2015,
+    type: "Action"
+  },
+  {
+    actor_name: "Alice",
     actor_id: 103,
-    actor_birthdate: "1973-09-21",
-    director_name: "Nikhil Advani",
-    director_id: 506,
-    director_birthdate: "1971-04-21",
-    film_title: "Student of the Year",
-    year: 2012,
-    type: "Romantic Comedy"
-  },
-  {
-    actor_name: "Ranbir Kapoor",
-    actor_id: 104,
-    actor_birthdate: "1982-09-28",
-    director_name: "Ayan Mukerji",
-    director_id: 507,
-    director_birthdate: "1983-05-12",
-    film_title: "Yeh Jawaani Hai Deewani",
-    year: 2013,
-    type: "Romantic Drama"
-  },
-  {
-    actor_name: "Deepika Padukone",
-    actor_id: 105,
-    actor_birthdate: "1986-01-05",
-    director_name: "Sanjay Leela Bhansali",
-    director_id: 508,
-    director_birthdate: "1963-02-24",
-    film_title: "Goliyon Ki Rasleela Ram-Leela",
-    year: 2013,
-    type: "Romantic Tragedy"
-  },
-  {
-    actor_name: "Ram Kapoor",
-    actor_id: 103,
-    actor_birthdate: "1973-09-21",
-    director_name: "Rohit Shetty",
-    director_id: 509,
-    director_birthdate: "1973-03-14",
-    film_title: "Chennai Express",
-    year: 2013,
-    type: "Action Comedy"
-  },
-  {
-    actor_name: "Katrina Kaif",
-    actor_id: 106,
-    actor_birthdate: "1983-07-16",
-    director_name: "Kabir Khan",
-    director_id: 510,
-    director_birthdate: "1971-04-04",
-    film_title: "Ek Tha Tiger",
-    year: 2012,
-    type: "Action Thriller"
+    actor_birthdate: "1993-04-12",
+    director_name: "Ram",
+    director_id: 201,
+    director_birthdate: "1975-06-10",
+    film_title: "Random Story",
+    year_of_production: 2012,
+    type: "Thriller"
   }
 ])
 
 
 db.movies.find(
-  { 
-    $or: [
-      { actor_name: "John Abraham", year: 2012 },
-      { actor_name: "Elly Singh", year: 2012 }
-    ]
+  {
+    actor_name: { $in: ["John", "Elly"] },
+    year_of_production: 2012
   },
-  { 
-    film_title: 1, 
-    actor_name: 1, 
-    year: 1, 
-    type: 1, 
-    _id: 0 
+  {
+    _id: 0,
+    film_title: 1,
+    actor_name: 1,
+    year_of_production: 1,
+    type: 1
   }
 )
 
 
 db.movies.find(
-  { actor_name: "Ram Kapoor" },
-  { 
-    film_title: 1, 
-    type: 1, 
-    _id: 0 
+  {
+    actor_name: "Ram"
+  },
+  {
+    _id: 0,
+    film_title: 1,
+    type: 1
   }
 ).sort({ film_title: 1 })
