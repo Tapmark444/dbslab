@@ -1,126 +1,164 @@
-// Switch to test database and drop collection if exists
-use tourist_db
+use tourism_db
 db.tourist_places.drop()
 
-// Insert 10 tourist places (6 Karnataka, 4 Kerala)
 db.tourist_places.insertMany([
   {
-    place: "Mysore Palace",
-    address: {
-      state: "Karnataka"
-    },
+    place: "Mysuru",
+    address: { state: "Karnataka" },
     id: 1,
-    tourist_attractions: ["Royal Palace", "Dussera Exhibition", "Sound & Light Show"],
-    best_time: "October - March",
-    transport: {
-      nearest_airport: "Mysore Airport (MYQ)",
-      nearest_railway: "Mysore Junction",
-      other: "KSRTC buses from Bangalore"
+    tourist_attractions: ["Mysore Palace", "Brindavan Gardens", "Chamundi Hills"],
+    best_time: "October to February",
+    modes_of_transport: {
+      nearest_airport: "Mysore Airport",
+      nearest_railway_station: "Mysuru Junction",
+      by_road: "Well-connected from Bengaluru"
     },
-    accommodation: ["Royal Orchid Metropole", "Keys Hotel"],
-    food: "Mysore Pak, Masala Dose"
+    accommodation: "Heritage hotels and budget lodges",
+    food_must_try: "Mysore Pak and Masala Dosa"
   },
   {
-    place: "Coorg (Kodagu)",
-    address: {
-      state: "Karnataka"
-    },
+    place: "Coorg",
+    address: { state: "Karnataka" },
     id: 2,
-    tourist_attractions: ["Abbey Falls", "Raja's Seat", "Coffee Plantations", "Iruppu Falls"],
-    best_time: "October - April",
-    transport: {
-      nearest_airport: "Mangalore Airport (IXE)",
-      nearest_railway: "Mysore Junction",
-      other: "KSRTC from Bangalore/Mysore"
+    tourist_attractions: ["Abbey Falls", "Raja's Seat", "Coffee Plantations"],
+    best_time: "October to March",
+    modes_of_transport: {
+      nearest_airport: "Mangalore Airport",
+      nearest_railway_station: "Mysuru Junction",
+      by_road: "5–6 hours drive from Bengaluru"
     },
-    accommodation: ["Club Mahindra", "Coorg Wilderness Resort"],
-    food: "Pandhi Curry, Nolen Gur"
+    accommodation: "Homestays and resorts",
+    food_must_try: "Pandi Curry and local coffee"
   },
   {
     place: "Hampi",
-    address: {
-      state: "Karnataka"
-    },
+    address: { state: "Karnataka" },
     id: 3,
-    tourist_attractions: ["Virupaksha Temple", "Vittala Temple", "Lotus Mahal", "Elephant Stables"],
-    best_time: "October - February",
-    transport: {
-      nearest_airport: "Hubli Airport (HBX)",
-      nearest_railway: "Hospet Junction",
-      other: "KSRTC buses"
+    tourist_attractions: ["Virupaksha Temple", "Vijaya Vittala Temple", "Stone Chariot"],
+    best_time: "November to February",
+    modes_of_transport: {
+      nearest_airport: "Jindal Vijayanagar Airport",
+      nearest_railway_station: "Hospet Junction",
+      by_road: "Buses from Bengaluru and Hubli"
     },
-    accommodation: ["Evolve Back", "Clarks Inn"],
-    food: "Jolada Rotti, Ennegai"
+    accommodation: "Guest houses and budget hotels",
+    food_must_try: "South Indian meals and local thali"
   },
   {
     place: "Gokarna",
-    address: {
-      state: "Karnataka"
-    },
+    address: { state: "Karnataka" },
     id: 4,
-    tourist_attractions: ["Om Beach", "Kudle Beach", "Half Moon Beach", "Mahabaleshwar Temple"],
-    best_time: "October - March",
-    transport: {
-      nearest_airport: "Goa Airport (GOI)",
-      nearest_railway: "Gokarna Road",
-      other: "KSRTC from Hubli"
+    tourist_attractions: ["Om Beach", "Kudle Beach", "Mahabaleshwar Temple"],
+    best_time: "October to March",
+    modes_of_transport: {
+      nearest_airport: "Dabolim Airport (Goa)",
+      nearest_railway_station: "Gokarna Road",
+      by_road: "NH66 from Karwar and Udupi"
     },
-    accommodation: ["Namaste Cafe", "SwaSwara"],
-    food: "Seafood Thali, Prawn Gassi"
+    accommodation: "Beach shacks and cottages",
+    food_must_try: "Seafood and coastal cuisine"
   },
   {
-    place: "Chikmagalur",
-    address: {
-      state: "Karnataka"
-    },
+    place: "Jog Falls",
+    address: { state: "Karnataka" },
     id: 5,
-    tourist_attractions: ["Mullayanagiri Peak", "Hebbe Falls", "Coffee Museum", "Baba Budangiri"],
-    best_time: "September - March",
-    transport: {
-      nearest_airport: "Mangalore Airport (IXE)",
-      nearest_railway: "Kadur Junction",
-      other: "KSRTC from Bangalore"
+    tourist_attractions: ["Jog Falls Viewpoints", "Linganamakki Dam"],
+    best_time: "August to December",
+    modes_of_transport: {
+      nearest_airport: "Hubballi Airport",
+      nearest_railway_station: "Talaguppa",
+      by_road: "Buses from Sagara and Shivamogga"
     },
-    accommodation: ["The Serai", "Coffee County"],
-    food: "Akki Roti, Chicken Sukka"
+    accommodation: "KSTDC lodges and homestays",
+    food_must_try: "South Indian vegetarian meals"
   },
   {
-    place: "Badami",
-    address: {
-      state: "Karnataka"
-    },
+    place: "Munnar",
+    address: { state: "Kerala" },
     id: 6,
-    tourist_attractions: ["Cave Temples", "Agastya Lake", "Bhutanatha Temple", "Archaeological Museum"],
-    best_time: "October - March",
-    transport: {
-      nearest_airport: "Hubli Airport (HBX)",
-      nearest_railway: "Badami Railway Station",
-      other: "KSRTC buses"
+    tourist_attractions: ["Tea Gardens", "Eravikulam National Park", "Mattupetty Dam"],
+    best_time: "September to March",
+    modes_of_transport: {
+      nearest_airport: "Cochin International Airport",
+      nearest_railway_station: "Aluva",
+      by_road: "Hill roads from Kochi and Tamil Nadu"
     },
-    accommodation: ["Badami Court", "Krishna Heritage"],
-    food: "Jowar Roti, Badami Halwa"
+    accommodation: "Tea estate resorts and hotels",
+    food_must_try: "Kerala meals and cardamom tea"
   },
   {
-    place: "Alleppey (Alappuzha)",
-    address: {
-      state: "Kerala"
-    },
+    place: "Alleppey",
+    address: { state: "Kerala" },
     id: 7,
-    tourist_attractions: ["Backwaters", "Houseboat Cruise", "Alleppey Beach", "Krishnapuram Palace"],
-    best_time
-
-
-  db.tourist_places.find(
-  { "address.state": "Karnataka" },
-  { place: 1, _id: 0 }
-)
+    tourist_attractions: ["Backwaters", "Houseboats", "Alappuzha Beach"],
+    best_time: "October to March",
+    modes_of_transport: {
+      nearest_airport: "Cochin International Airport",
+      nearest_railway_station: "Alappuzha",
+      by_road: "NH66 from Kochi and Trivandrum"
+    },
+    accommodation: "Houseboats and lakeside resorts",
+    food_must_try: "Karimeen Pollichathu and seafood"
+  },
+  {
+    place: "Kochi",
+    address: { state: "Kerala" },
+    id: 8,
+    tourist_attractions: ["Fort Kochi", "Chinese Fishing Nets", "Mattancherry Palace"],
+    best_time: "October to February",
+    modes_of_transport: {
+      nearest_airport: "Cochin International Airport",
+      nearest_railway_station: "Ernakulam Junction",
+      by_road: "NH66 and city buses"
+    },
+    accommodation: "City hotels and homestays",
+    food_must_try: "Appam with stew and seafood"
+  },
+  {
+    place: "Wayanad",
+    address: { state: "Kerala" },
+    id: 9,
+    tourist_attractions: ["Edakkal Caves", "Banasura Sagar Dam", "Wildlife Sanctuaries"],
+    best_time: "October to May",
+    modes_of_transport: {
+      nearest_airport: "Calicut International Airport",
+      nearest_railway_station: "Kozhikode",
+      by_road: "Hill roads from Mysuru and Kozhikode"
+    },
+    accommodation: "Eco resorts and homestays",
+    food_must_try: "Kerala parotta and curries"
+  },
+  {
+    place: "Thekkady",
+    address: { state: "Kerala" },
+    id: 10,
+    tourist_attractions: ["Periyar Wildlife Sanctuary", "Boat Cruises", "Spice Plantations"],
+    best_time: "September to April",
+    modes_of_transport: {
+      nearest_airport: "Madurai Airport",
+      nearest_railway_station: "Kottayam",
+      by_road: "Buses from Kochi and Madurai"
+    },
+    accommodation: "Forest lodges and hotels",
+    food_must_try: "Kerala meals and spice-rich dishes"
+  }
+])
 
 
 db.tourist_places.find(
+  { "address.state": "Karnataka" },
+  { _id: 0, place: 1, address: 1 }
+)
+
+db.tourist_places.find(
   { "address.state": "Kerala" },
-  { 
+  {
+    _id: 0,
     place: 1,
     tourist_attractions: 1,
-    _id: 0 
+    best_time: 1,
+    modes_of_transport: 1,
+    accommodation: 0,
+    food_must_try: 0
   }
 )
