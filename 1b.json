@@ -1,171 +1,173 @@
-// Switch to test database and drop collection if exists
 use restaurant_db
 db.restaurants.drop()
 
-// Insert 10 Bangalore restaurants (Italian + North Indian Thali included)
 db.restaurants.insertMany([
   {
     name: "Bella Italia",
     address: {
       building: "12th Floor",
       street: "MG Road",
-      area: "Indiranagar",
-      pincode: 560038
+      area: "Bangalore",
+      pincode: 560001
     },
     id: 1,
-    cuisine: ["Italian", "Continental"],
-    nearby_landmarks: ["Forum Mall", "Indiranagar Metro"],
+    cuisine: ["Italian"],
+    nearby_landmarks: ["MG Road Metro", "Garuda Mall"],
     online_delivery: "yes",
     famous_for: "Margherita Pizza"
+  },
+  {
+    name: "La Trattoria",
+    address: {
+      building: "101",
+      street: "Church Street",
+      area: "Bangalore",
+      pincode: 560001
+    },
+    id: 2,
+    cuisine: ["Italian", "Continental"],
+    nearby_landmarks: ["Brigade Road Junction", "Church Street Social"],
+    online_delivery: "no",
+    famous_for: "Pasta Alfredo"
+  },
+  {
+    name: "Roma Ristorante",
+    address: {
+      building: "2nd Floor",
+      street: "Indiranagar 100 Ft Road",
+      area: "Bangalore",
+      pincode: 560038
+    },
+    id: 3,
+    cuisine: ["Italian"],
+    nearby_landmarks: ["CMH Road Metro", "Toit"],
+    online_delivery: "yes",
+    famous_for: "Four Cheese Pizza"
   },
   {
     name: "Spice Thali",
     address: {
       building: "Ground Floor",
       street: "Jayanagar 4th Block",
-      area: "Jayanagar",
+      area: "Bangalore",
       pincode: 560011
     },
-    id: 2,
-    cuisine: ["North Indian", "South Indian"],
-    nearby_landmarks: ["Jayanagar Shopping Complex", "Nagarjuna Hotel"],
+    id: 4,
+    cuisine: ["North Indian Thali", "South Indian"],
+    nearby_landmarks: ["Jayanagar Bus Stand", "Cool Joint"],
     online_delivery: "yes",
     famous_for: "North Indian Thali"
   },
   {
-    name: "Pasta House",
-    address: {
-      building: "3rd Floor",
-      street: "Brigade Road",
-      area: "Ashok Nagar",
-      pincode: 560025
-    },
-    id: 3,
-    cuisine: ["Italian", "Pizza"],
-    nearby_landmarks: ["UB City Mall", "Church Street"],
-    online_delivery: "yes",
-    famous_for: "Penne Arrabiata"
-  },
-  {
-    name: "Punjabi Dhaba",
+    name: "Punjabi Thali House",
     address: {
       building: "1st Floor",
       street: "Koramangala 80 Feet Road",
-      area: "Koramangala",
+      area: "Bangalore",
       pincode: 560034
     },
-    id: 4,
-    cuisine: ["North Indian", "Punjabi"],
-    nearby_landmarks: ["Forum Koramangala", "Trinity Circle"],
-    online_delivery: "yes",
-    famous_for: "North Indian Thali"
-  },
-  {
-    name: "La Trattoria",
-    address: {
-      building: "5th Floor",
-      street: "Residency Road",
-      area: "Shanthala Nagar",
-      pincode: 560025
-    },
     id: 5,
-    cuisine: ["Italian", "Mediterranean"],
-    nearby_landmarks: ["UB City", "MG Road Metro"],
+    cuisine: ["North Indian Thali", "Punjabi"],
+    nearby_landmarks: ["Forum Mall", "Raheja Arcade"],
     online_delivery: "no",
-    famous_for: "Lasagna"
+    famous_for: "Amritsari Thali"
   },
   {
-    name: "Rajasthani Rasoi",
+    name: "Delhi Durbar Thali",
     address: {
-      building: "Ground Floor",
-      street: "Whitefield Main Road",
-      area: "Whitefield",
-      pincode: 560066
+      building: "3rd Floor",
+      street: "Commercial Street",
+      area: "Bangalore",
+      pincode: 560001
     },
     id: 6,
-    cuisine: ["North Indian", "Rajasthani"],
-    nearby_landmarks: ["Phoenix Marketcity", "Whitefield Metro"],
+    cuisine: ["North Indian Thali"],
+    nearby_landmarks: ["Commercial Street Market", "Russell Market"],
     online_delivery: "yes",
-    famous_for: "Dal Baati Churma"
+    famous_for: "Delhi Special Thali"
   },
   {
-    name: "Gino's Pizza",
+    name: "Milano Cafe",
     address: {
-      building: "2nd Floor",
-      street: "Bannerghatta Road",
-      area: "Jayanagar",
-      pincode: 560076
+      building: "Ground Floor",
+      street: "HSR Layout 27th Main",
+      area: "Bangalore",
+      pincode: 560102
     },
     id: 7,
-    cuisine: ["Italian", "Fast Food"],
-    nearby_landmarks: ["Meenakshi Mall", "JP Nagar"],
+    cuisine: ["Italian", "Cafe"],
+    nearby_landmarks: ["NIFT College", "HSR BDA Complex"],
+    online_delivery: "yes",
+    famous_for: "Tiramisu"
+  },
+  {
+    name: "Thali Junction",
+    address: {
+      building: "2nd Floor",
+      street: "Marathahalli Main Road",
+      area: "Bangalore",
+      pincode: 560037
+    },
+    id: 8,
+    cuisine: ["North Indian Thali", "Chinese"],
+    nearby_landmarks: ["Soul Space Arena", "ORR Flyover"],
+    online_delivery: "no",
+    famous_for: "Executive Thali"
+  },
+  {
+    name: "Casa Napoli",
+    address: {
+      building: "5th Floor",
+      street: "Whitefield Main Road",
+      area: "Bangalore",
+      pincode: 560066
+    },
+    id: 9,
+    cuisine: ["Italian", "Pizza"],
+    nearby_landmarks: ["Phoenix Marketcity", "VR Bengaluru"],
     online_delivery: "yes",
     famous_for: "Neapolitan Pizza"
   },
   {
-    name: "Thali King",
+    name: "Royal North Thali",
     address: {
       building: "1st Floor",
-      street: "Marathahalli Main Road",
-      area: "Marathahalli",
-      pincode: 560037
-    },
-    id: 8,
-    cuisine: ["North Indian", "Gujarati"],
-    nearby_landmarks: ["Soul Space Arena", "ORR Flyover"],
-    online_delivery: "yes",
-    famous_for: "North Indian Thali"
-  },
-  {
-    name: "South Italian",
-    address: {
-      building: "Ground Floor",
-      street: "HSR Layout",
-      area: "HSR Layout",
-      pincode: 560102
-    },
-    id: 9,
-    cuisine: ["Italian", "Pasta"],
-    nearby_landmarks: ["HSR Layout Park", "Agara Lake"],
-    online_delivery: "yes",
-    famous_for: "Pesto Pasta"
-  },
-  {
-    name: "Delhi Darbar",
-    address: {
-      building: "3rd Floor",
-      street: "Commercial Street",
-      area: "Shivaji Nagar",
-      pincode: 560001
+      street: "Malleshwaram 8th Cross",
+      area: "Bangalore",
+      pincode: 560003
     },
     id: 10,
-    cuisine: ["North Indian", "Mughlai"],
-    nearby_landmarks: ["Commercial Street Market", "Russell Market"],
+    cuisine: ["North Indian Thali"],
+    nearby_landmarks: ["Mantri Square Mall", "Malleshwaram Railway Station"],
     online_delivery: "yes",
-    famous_for: "Butter Chicken"
+    famous_for: "Unlimited Thali"
   }
 ])
 
 
-
 db.restaurants.find(
-  { 
-    "cuisine": "Italian",
-    "address.area": { $in: ["Indiranagar", "Ashok Nagar", "Shanthala Nagar", "Jayanagar", "HSR Layout"] }
+  {
+    "address.area": "Bangalore",
+    cuisine: "Italian"      // matches element in the array
   },
-  { name: 1, address: 1, _id: 0 }
+  {
+    _id: 0,
+    name: 1,
+    address: 1
+  }
 )
 
 
+
 db.restaurants.find(
-  { 
-    cuisine: "North Indian",
-    "address.area": { $in: ["Jayanagar", "Koramangala", "Whitefield", "Marathahalli", "Shivaji Nagar"] }
+  {
+    "address.area": "Bangalore",
+    cuisine: "North Indian Thali"
   },
-  { 
-    name: 1, 
-    address: 1, 
-    nearby_landmarks: 1, 
-    _id: 0 
+  {
+    _id: 0,
+    name: 1,
+    address: 1,
+    nearby_landmarks: 1
   }
 )
